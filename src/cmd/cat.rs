@@ -1,22 +1,21 @@
 use crate::cmd::ProgResult;
-use std::fs::File;
-use std::io::{stdout, Write, BufReader, prelude::*};
+use std::fs;
+use std::io::{stdout, Write};
 
 pub fn cat(paths: &[String]) -> ProgResult {
-    let stdout = stdout();
-    let mut lock = stdout.lock();
-    let mut buf = String::with_capacity(1024);
+    let out = stdout();
+    let mut out = out.lock();
 
-    paths.iter().skip(1).for_each(|path| {
-        let mut buf_reader = BufReader::new(File::open(path).expect("Cannot open file"));
-        buf_reader.read_to_string(&mut buf).expect("Cannot write in internal program buffer");
-        write!(
-            lock,
-            "{}",
-            buf
-        )
-        .expect("Cannot write in stdout")
-    });
-    lock.flush().expect("Cannot flush stdout");
+    write!(
+        out,
+        "{}",
+        paths
+            .iter()
+            .skip(1)
+            .map(|path| fs::read_to_string(path).expect("Cannot extract file content"))
+            .collect::<String>()
+    )?;
+
+    out.flush()?;
     Ok(())
 }
