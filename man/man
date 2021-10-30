@@ -1,0 +1,5 @@
+Show the command's manual
+
+Args:
+    [CMD1, CMD2, CMD3, ...]
+        Print the manual command from `man/<cmd>`

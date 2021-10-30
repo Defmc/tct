@@ -12,11 +12,11 @@ pub fn cat(paths: &[String]) -> ProgResult {
         let buf_reader = unsafe {
             MmapOptions::new()
                 .map(&File::open(path).expect("File not found"))
-                .unwrap()
+                .expect("Cannot map file")
         };
+
         out.write_all(&buf_reader[..])
             .expect("Cannot show file content");
     });
-    out.flush()?;
     Ok(())
 }
