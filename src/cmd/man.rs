@@ -7,7 +7,7 @@ pub fn man(cmds: &[String]) -> ProgResult {
 
     cmds.iter().skip(1).for_each(|cmd| {
         if MANUALS.contains_key(cmd.as_str()) {
-            out.write(MANUALS[cmd.as_str()].as_bytes())
+            out.write_all(MANUALS[cmd.as_str()].as_bytes())
                 .expect("Cannot show manual");
         }
     });
