@@ -1,0 +1,20 @@
+use lazy_static::lazy_static;
+use rustc_hash::FxHashMap;
+
+type ManualMap = FxHashMap<&'static str, &'static str>;
+
+macro_rules! impl_man {
+    ($hmp:tt, $($cmd:tt), *) => {
+        $(
+            $hmp.insert($cmd, include_str!(concat!("../man/", $cmd))).unwrap();
+        )*
+    }
+}
+
+lazy_static! {
+    pub static ref MANUALS: ManualMap = {
+        let mut hmp: ManualMap = ManualMap::default();
+        impl_man!(hmp, "cat", "man");
+        hmp
+    };
+}

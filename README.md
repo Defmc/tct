@@ -1,5 +1,5 @@
 # Tiny Commands Toolchain: TCT
-A 1.68MB (release profile) monolithic commands kit for casual terminal usage without any run-time dependency. MMade in 171 LOC (lines of code).
+A 1.62MB (release profile) monolithic commands kit for casual terminal usage without any run-time dependency. MMade in 171 LOC (lines of code).
 
 ## Usage
 For execute a command, just run the `tct` with the first argument being the same **all commands require at least 1 argument**.

@@ -1,4 +1,5 @@
-use crate::cmd::{ProgResult, COMMANDS, MANUALS};
+use crate::cmd::{ProgResult, COMMANDS};
+use crate::man::MANUALS;
 use std::io::{stdout, Write};
 
 pub fn man(cmds: &[String]) -> ProgResult {
