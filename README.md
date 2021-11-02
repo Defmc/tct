@@ -1,14 +1,15 @@
 # Tiny Commands Toolchain: TCT
-A **1.68MB**(release profile) monolithic commands kit for casual terminal usage without any run-time dependency.
+A 1.68MB (release profile) monolithic commands kit for casual terminal usage without any run-time dependency. MMade in 171 LOC (lines of code).
 
 ## Usage
 For execute a command, just run the `tct` with the first argument being the same **all commands require at least 1 argument**.
 
 Examples:
-| command |  launch string               |
-| `cat`   | `tct cat some_file`          |
-| `grep`  | `tct cat a_string some_file` |
-| `mkdir` | `tct mkdir new_dir`          |
+| command | launch string |
+| :--- | ---: |
+| `cat` | `tct cat some_file` |
+| `grep` | `tct cat a_string some_file` |
+| `mkdir` | `tct mkdir new_dir` |
 
 ## Benchmarks
 Comparision of some tools. Everything with `gnu` prefix means that's from `gnu-coreutils`'s Arch package (version `9.0-2`).
