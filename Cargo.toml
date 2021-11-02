@@ -1,6 +1,6 @@
 [package]
 name = "tct"
-version = "0.1.4"
+version = "0.6.0"
 edition = "2021"
 
 [dependencies]
