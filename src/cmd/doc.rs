@@ -1,4 +1,4 @@
-use crate::cmd::{ProgResult, MANUALS};
+use crate::cmd::{ProgResult, COMMANDS, MANUALS};
 use std::io::{stdout, Write};
 
 pub fn man(cmds: &[String]) -> ProgResult {
@@ -9,6 +9,15 @@ pub fn man(cmds: &[String]) -> ProgResult {
         if MANUALS.contains_key(cmd.as_str()) {
             out.write_all(MANUALS[cmd.as_str()].as_bytes())
                 .expect("Cannot show manual");
+        }
+    });
+    Ok(())
+}
+
+pub fn check(cmds: &[String]) -> ProgResult {
+    cmds.iter().for_each(|cmd| {
+        if !COMMANDS.contains_key(cmd.as_str()) {
+            panic!("{} isn't a valid command", cmd)
         }
     });
     Ok(())
