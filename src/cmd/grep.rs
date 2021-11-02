@@ -1,6 +1,6 @@
 use crate::cmd::ProgResult;
 use std::fs::File;
-use std::io::{stdout, BufRead, StdoutLock, Write};
+use std::io::{stdout, StdoutLock, Write};
 use std::ops::ControlFlow;
 
 use memmap2::MmapOptions;
@@ -24,13 +24,6 @@ pub fn file_grep(out: &mut StdoutLock, pattern: &[u8], filepath: &str) {
             .map(&File::open(filepath).expect("File not fond"))
             .expect("Cant map file")
     };
-    /*buf_reader.lines().for_each(|line| {
-        let line = line.expect("Line isn't UTF8-Valid");
-        if line.contains(pattern) {
-            out.write_all(line.as_bytes()).expect("Cannot print");
-            out.write_all(b"\n").unwrap();
-        }
-    });*/
     buf_reader.split(|&x| x == b'\n').for_each(|line| {
         if contains_slice(line, pattern) {
             out.write_all(line).expect("Cannot print");
