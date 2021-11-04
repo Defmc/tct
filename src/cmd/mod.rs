@@ -22,7 +22,7 @@ macro_rules! impl_cmd {
 lazy_static! {
     pub static ref COMMANDS: FxHashMap<&'static str, Prog> = {
         let mut hmp: FxHashMap<&'static str, Prog> = FxHashMap::default();
-        impl_cmd!(hmp, cat, man, grep, rm, can, touch, rmdir, mkdir);
+        impl_cmd!(hmp, cat, man, grep, rm, can, touch, rmdir, mkdir, ls);
         hmp
     };
 }
