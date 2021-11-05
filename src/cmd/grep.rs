@@ -2,7 +2,7 @@ use crate::cmd::ProgResult;
 use std::fs::File;
 use std::io::{stdout, StdoutLock, Write};
 
-use memmap2::MmapOptions;
+use memmap2::{Mmap, MmapOptions};
 
 pub fn grep(items: &[String]) -> ProgResult {
     let out = stdout();
@@ -10,21 +10,17 @@ pub fn grep(items: &[String]) -> ProgResult {
 
     let pattern = items[1].as_bytes();
 
-    items
-        .iter()
-        .skip(2)
-        .for_each(|filepath| file_grep(&mut out, pattern, filepath));
+    items.iter().skip(2).for_each(|filepath| {
+        file_grep(&mut out, pattern, unsafe {
+            MmapOptions::new()
+                .map(&File::open(filepath).expect("File not found"))
+                .expect("Cannot map file")
+        })
+    });
     Ok(())
 }
 
-#[inline(always)]
-pub fn file_grep(out: &mut StdoutLock, pattern: &[u8], filepath: &str) {
-    let buf_reader = unsafe {
-        MmapOptions::new()
-            .map(&File::open(filepath).expect("File not found"))
-            .expect("Cant map file")
-    };
-
+pub fn file_grep(out: &mut StdoutLock, pattern: &[u8], buf_reader: Mmap) {
     let (mut line_start, mut indx_seq) = (0, 0);
     buf_reader.iter().enumerate().for_each(|(i, &b)| {
         if indx_seq != pattern.len() {
