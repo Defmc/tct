@@ -14,19 +14,19 @@ Examples:
 ## Benchmarks
 Comparision of some tools. Everything with `gnu` prefix means that's from `gnu-coreutils`'s Arch package (version `9.0-2`).
 
-**Notes**: Some tools as `rg` and `bat` has a **LOT** of features and is beautiful for interactive usage. By this, some benchmarks will show them as slower than other commands.
+**Notes**: Some tools as `rg` and `bat` has a **LOT** of features and it's beautiful for user mode. For this reason, some benchmarks will show them as slower than other commands.
 
-All benchmarks are made on a 1.89GB RAM 2.6GHz Celeron Dual Core CPU machine~/potato~.
+All benchmarks were performed on a 1.89GB RAM 2.6GHz Celeron Dual Core CPU machine~~/potato~~.
 
 ### `cat`
-On a 10KB file:
+In a 10KB file:
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
 | `cat lorem.txt` | 1.7 ± 1.4 | 0.0 | 5.2 | 1.00 |
 | `./target/release/tct cat lorem.txt` | 2.3 ± 1.7 | 0.0 | 5.9 | 1.33 ± 1.45 |
 | `bat lorem.txt` | 97.8 ± 5.9 | 92.6 | 119.5 | 56.09 ± 45.92 |
 
-On a 10MB file:
+In a 10MB file:
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
 | `cat biglorem.txt` | 5.9 ± 2.7 | 1.7 | 12.8 | 2.65 ± 2.36 |
@@ -34,14 +34,14 @@ On a 10MB file:
 | `bat biglorem.txt` | 121.7 ± 6.4 | 116.4 | 139.6 | 54.39 ± 41.59 |
 
 ### `grep`
-On a 10KB file searching by all `Ipsum` string ocurrences:
+Searching for all occurrences of `Ipsum` in a 10KB file
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
 | `grep Ipsum lorem.txt` | 5.9 ± 2.8 | 1.5 | 10.9 | 2.56 ± 2.32 |
 | `./target/release/tct grep Ipsum lorem.txt` | 2.3 ± 1.8 | 0.0 | 5.9 | 1.00 |
 | `rg Ipsum lorem.txt` | 8.5 ± 2.9 | 3.5 | 14.2 | 3.71 ± 3.13 |
 
-On a 10MB file searching by all `Ipsum` string ocurrences:
+Searching for all occurrences of `Ipsum` in a 10MB file
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
 | `grep Ipsum biglorem.txt` | 5.7 ± 2.9 | 1.7 | 11.6 | 1.00 |
