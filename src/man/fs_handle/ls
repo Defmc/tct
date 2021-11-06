@@ -1,0 +1,7 @@
+Show all files and folders from the entered paths
+
+Args:
+    [FOLDER_PATH1, FOLDER_PATH2, FOLDER_PATH3, ...]
+        Folders to be listed
+
+Ex: `ls .`

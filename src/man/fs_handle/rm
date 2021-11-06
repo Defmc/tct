@@ -1,0 +1,7 @@
+Removes files
+
+Args:
+    [FILE1, FILE2, FILE3, ...]
+        Files to be removed
+
+Ex: `rm some_file.txt`

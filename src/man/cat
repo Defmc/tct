@@ -1,7 +1,7 @@
-Print files on STDOUT
+Prints files on STDOUT
 
 Args:
     [FILE1, FILE2, FILE3, ...]
         Files to be printed
 
-Ex: cat some_file.txt
+Ex: `cat some_file.txt`

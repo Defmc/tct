@@ -1,0 +1,7 @@
+Creates files
+
+Args:
+    [FILES1, FILES2, FILES3, ...]
+        Files to be created
+
+Ex: `touch some_file.txt`

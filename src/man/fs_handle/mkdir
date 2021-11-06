@@ -1,0 +1,7 @@
+Creates folders
+
+Args:
+    [FOLDER_NAME1, FOLDER_NAME2, FOLDER_NAME3, ...]
+        The name of the folders to be created
+
+Ex: `mkdir some_dir`

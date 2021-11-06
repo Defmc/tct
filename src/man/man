@@ -1,5 +1,7 @@
-Show the command's manual
+Shows the manualpage for each command entered
 
 Args:
     [CMD1, CMD2, CMD3, ...]
         Print the manual command from `man/<cmd>`
+
+Ex: `man cat`

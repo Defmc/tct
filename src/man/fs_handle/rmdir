@@ -1,0 +1,7 @@
+Removes folders
+
+Args:
+    [FOLDER_NAME1, FOLDER_NAME2, FOLDER_NAME3, ...]
+        Folders to be removed
+
+Ex: `rmdir some_dir`

@@ -55,5 +55,4 @@ Be sure to compile with `release` profile (`cargo build --release`). If you're c
 - [ ] (Add more benchmarks)
 - [ ] (Optimize `grep` for large files)
 - [ ] (Improve README)
-- [ ] (Add `ls` command)
 - [ ] (Update manpages)
