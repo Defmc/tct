@@ -1,0 +1,7 @@
+Copies files
+
+Args:
+    [(FROM_FILE_PATH1, TO_FILE_PATH1), (FROM_FILE_PATH2, TO_FILE_PATH2), (FROM_FILE_PATH3, TO_FILE_PATH3), ...]
+        Files to be copied. `FROM` being the original file and `TO` the new file.
+
+Ex: `cp some_file.txt some_copy.txt`
