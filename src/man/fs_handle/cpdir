@@ -1,0 +1,7 @@
+Copies folders
+
+Args:
+    [(FROM_FOLDER_PATH1, TO_FOLDER_PATH1), (FROM_FOLDER_PATH2, TO_FOLDER_PATH2), (FROM_FOLDER_PATH3, TO_FOLDER_PATH3), ...]
+        Folders to be copied. `FROM` being the original folder and `TO` the new folder.
+
+Ex: `cpdir some_dir some_copied_dir`
