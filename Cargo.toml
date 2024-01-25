@@ -6,7 +6,7 @@ license = "MIT"
 
 [dependencies]
 lazy_static = "1.4.0"
-memmap2 = "0.5.8"
+memmap2 = "0.9.4"
 rustc-hash = "1.1.0"
 
 [profile.release]
